@@ -1,11 +1,11 @@
 mod data;
-mod sample;
 mod population;
+mod sample;
 
-use std::convert::Infallible;
 use crate::data::gen_result;
-use crate::sample::Sample;
 use crate::population::Population;
+use crate::sample::Sample;
+use std::convert::Infallible;
 
 fn main() -> Result<(), Infallible> {
     let test_sample = Sample {
