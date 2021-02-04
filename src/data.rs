@@ -5,7 +5,10 @@ pub trait Data {
     fn get_sd(&self) -> Result<f32, Infallible>;
 }
 
-pub fn gen_result(data: &dyn Data) -> Result<(f32, f32), Infallible> {
+pub fn gen_result<T>(data: &T) -> Result<(f32, f32), Infallible>
+where
+    T: Data,
+{
     let mean = data.get_mean()?;
     let sd = data.get_sd()?;
     println!("Mean: {}", &mean);
