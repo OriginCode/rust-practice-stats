@@ -6,6 +6,6 @@ pub struct GeometricDist {
 
 impl Prob for GeometricDist {
     fn prob(&self, x: u32) -> f32 {
-        return self.p * (1.0 - self.p).powi((x - 1) as i32);
+        self.p * (1.0 - self.p).powi((x - 1) as i32)
     }
 }

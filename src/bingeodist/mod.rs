@@ -7,7 +7,7 @@ pub fn cdf(dist: &impl Prob, x: u32, y: u32) -> f32 {
     for n in x..=y {
         result += dist.prob(n);
     }
-    return result;
+    result
 }
 
 pub mod bindist;
