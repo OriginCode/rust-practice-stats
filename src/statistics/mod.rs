@@ -1,9 +1,13 @@
-use std::convert::Infallible;
-
 pub trait Data {
-    fn get_mean(&self) -> Result<f32, Infallible>;
-    fn get_sd(&self) -> Result<f32, Infallible>;
+    fn get_mean(&self) -> f32;
+    fn get_sd(&self) -> f32;
 }
 
-pub mod sample;
+pub fn get_param_or_stat(data: impl Data, val: impl Into<f32>) -> f32 {
+    let mean = data.get_mean();
+    let sd = data.get_sd();
+    (val.into() - mean) / sd
+}
+
 pub mod population;
+pub mod sample;
